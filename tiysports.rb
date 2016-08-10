@@ -33,16 +33,6 @@ get '/players/new' do
 end
 
 post '/players/create' do
-  # name = params["name"]
-  # age = params["age"]
-  # shirt_size = params["shirt_size"]
-  # birthday = params["birthday"]
-  #
-  # person = Player.create(name: name, age: age, shirt_size: shirt_size, birthday: birthday)
-
-  # Params is already what I'm expecting (a hash with keys
-  # as the names of my colums and the values being what was
-  # entered on the form)
   person = Player.create(params)
 
   redirect "/players/#{person.id}"
@@ -64,6 +54,16 @@ get '/players/:id' do
   @player = Player.find_by(id: player_id)
 
   erb :player_details
+end
+
+get '/teams/new' do
+  erb :team_form
+end
+
+post '/teams/create' do
+  team = Team.create(params)
+
+  redirect "/teams/#{team.id}"
 end
 
 post '/teams/search' do
