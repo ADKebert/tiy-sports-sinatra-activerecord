@@ -22,6 +22,7 @@
       <input type="submit" value="Search">
     </form>
 
+
     <!-- List of all of the teams here -->
     <h2>Teams</h2>
     <ul>
@@ -29,5 +30,11 @@
       <li><a href="/teams/<%= team.id %>"><%= team.name %> - <%= team.mascot %></a></li>
     <% end %>
     </ul>
+
+    <form action="/teams/search" method="post">
+      <input type="text" name="name" value="">
+      <input type="submit" value="Search">
+    </form>
+    
   </body>
 </html>
